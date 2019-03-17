@@ -1,0 +1,24 @@
+{% extends "index.html" %}
+
+{% block extra_head %}
+{% if page.extra.author %}<meta name="author" content="{{ page.extra.author }}">{% endif %}
+{% if page.taxonomies.tags %}<meta name="keywords" content="{% for tag in page.taxonomies.tags %}{{ tag }}{% if loop.last == false %},{% endif %}{% endfor %}">{% endif %}
+{% endblock extra_head %}
+
+{% block content %}
+<div class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-date">
+    <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    {% if page.taxonomies.tags %}
+      <span> - Tags:
+        {% for tag in page.taxonomies.tags %}
+          {% set tag_url = get_taxonomy_url(kind="tags", name=tag) %}
+          <a href="{{ tag_url }}">{{ tag }}</a>{% if loop.last == false %}, {% endif %}
+        {% endfor %}
+      </span>
+    {% endif %}
+  </div>
+  {{ page.content | safe }}
+</div>
+{% endblock content %}

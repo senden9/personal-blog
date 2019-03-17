@@ -1,0 +1,11 @@
+compile_sass = true
+title = "Journal Simple theme"
+description = "My blogging theme"
+base_url = "https://example.com/"
+
+[extra]
+journal_sticky = true
+journal_reverse = false
+journal_theme = ""
+journal_links = [
+]

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="{{ get_url(path="print.css", trailing_slash=false) }}" media="print">
+      <link rel="stylesheet" href="{{ get_url(path="poole.css", trailing_slash=false) }}">
+      <link rel="stylesheet" href="{{ get_url(path="journal_simple.css", trailing_slash=false) }}">
+      <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Ubuntu&amp;subset=latin-ext" rel="stylesheet"> {# via https://fonts.google.com/selection?query=source&selection.family=Source+Code+Pro|Ubuntu&selection.subset=latin-ext #}
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/brands.css" integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous"> {# Twitter and linked in icon #}
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css" integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+
+      {% if config.generate_rss %}
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) }}">
+      {% endif %}
+      <meta name=generator content="Zola">
+
+      {% block extra_head %}
+      {% endblock extra_head %}
+    </head>
+
+    <body class="{% if config.extra.journal_reverse %}layout-reverse{% endif %}">
+        {% block sidebar %}
+            <div class="sidebar">
+                <div class="container {% if config.extra.journal_sticky %}sidebar-sticky{% endif %}">
+                    <div class="sidebar-about">
+                        {% block sidebar_about %}
+                            <a href="{{ config.base_url }}"><h1>{{ config.title }}</h1></a>
+                            {% if config.description %}
+                            <p class="lead">{{config.description}}</p>
+                            {% endif %}
+                        {% endblock sidebar_about %}
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        {% block sidebar_nav %}
+                        {% for link in config.extra.journal_links %}
+                        <li class="sidebar-nav-item"><a href="{{link.url}}">{{link.name}}</a></li>
+                        {% endfor %}
+			<li class="sidebar-nav-item"><a href="{{ get_url(path="./aboutme/_index.md") }}">About Me</a></li>
+                        {% endblock sidebar_nav %}
+                    </ul>
+                </div>
+            </div>
+        {% endblock sidebar %}
+
+        <div class="content container">
+            {% block content %}
+                <div class="posts">
+                    {% for page in section.pages %}
+                      <div class="post">
+                        <h1 class="post-title">
+                          <a href="{{ page.permalink }}">
+                            {{ page.title }}
+                          </a>
+                        </h1>
+                        <div class="post-date">
+                          <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+                          {% if page.taxonomies.tags %}
+                            <span> - Tags:
+                              {% for tag in page.taxonomies.tags %}
+                                {% set tag_url = get_taxonomy_url(kind="tags", name=tag) %}
+                                <a href="{{ tag_url }}">{{ tag }}</a>{% if loop.last == false %}, {% endif %}
+                              {% endfor %}
+                            </span>
+                          {% endif %}
+                        </div>
+                        {% if page.description %}{{ page.description }}{% endif %}
+                      </div>
+                    {% endfor %}
+                </div>
+            {% endblock content %}
+        </div>
+
+    </body>
+
+</html>

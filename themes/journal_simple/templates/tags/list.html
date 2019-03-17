@@ -1,0 +1,14 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="post">
+  <h1 class="post-title">{{ config.extra.label_tag }}</h1>
+  <ul class="base-list">
+	  {% for tag in terms %}
+                <li>
+                    <a href="{{ tag.permalink }}">{{ tag.name }}</a> ({{ tag.pages | length }})
+                </li>
+            {% endfor %}
+  </ul>
+</div>
+{% endblock content %}

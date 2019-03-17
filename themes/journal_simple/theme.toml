@@ -1,0 +1,10 @@
+name = "journal_simple"
+
+[author]
+name = "Stefano Probst"
+homepage = "https://stefano-probst.com"
+
+[original]
+author =  "mdo"
+homepage = "http://markdotto.com/"
+repo = "https://www.github.com/mdo/hyde"

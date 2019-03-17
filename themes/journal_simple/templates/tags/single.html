@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div class="post">
+  <h3 class="post-title">{{ config.extra.label_tag }}: {{term.name}}</h3>
+  {% for page in term.pages %}
+  <h1 class="post-title">
+    <a href="{{ page.permalink }}">
+      {{ page.title }}
+    </a>
+  </h1>
+  <div class="post-date">
+    <time datetime="{{ page.date | date(format="%Y-%m-%d") }}">{{ page.date | date(format="%Y-%m-%d") }}</time>
+    {% if page.taxonomies.tags %}
+      <span> - Tags:
+        {% for tag in page.taxonomies.tags %}
+          {% set tag_url = get_taxonomy_url(kind="tags", name=tag) %}
+          <a href="{{ tag_url }}">{{ tag }}</a>{% if loop.last == false %}, {% endif %}
+        {% endfor %}
+      </span>
+    {% endif %}
+  </div>
+  {% if page.description %}{{ page.description }}{% endif %}
+  {% endfor %}
+</div>
+{% endblock content %}
