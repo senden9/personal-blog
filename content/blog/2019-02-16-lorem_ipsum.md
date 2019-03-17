@@ -1,12 +1,12 @@
 +++
-title = "Lorem Ipsum - Test"
-description = "Test entry for to see the formating."
+title = "Lorem Ipsum"
+description = "Test entry for to see the formatting."
 date = 2019-02-16
 
 [taxonomies]
-tags = ["Lorem"]
+tags = ["lorem"]
 +++
-Test entry for to see the formating.
+Test entry for to see the formatting.
 
 # Old Lorem Ipsum
 *Lorem* ipsum dolor sit amet, consetetur [sadipscing](http://example.com/) elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -22,6 +22,8 @@ Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming 
 Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.
 
 # "What is an 'atomic' anyway?"
+
+Quote from [rust-br](https://github.com/rust-br/blog/blob/472ec9774acab35fc5246e4b6ac699980dd3deed/content/en/understanding-atomics.md):
 
 Atomics are data types on which operations are indivisible,
 or the indivisible operations by themselves. Indivisible here means that
