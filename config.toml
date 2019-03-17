@@ -31,10 +31,10 @@ journal_links = [
     {name="Github", url="https://github.com/senden9"},
     #{name="Contribuir!", url="https://rust-br.github.io/blog/hello-world"},
 ]
-
+# Need to keep in sync with "$theme" from journal_simple.scss
+journal_theme_color = "#75b5aa"
 
 # Old ones
-
 ## i18n words
 label_tags = "Tags"
 label_tag = "Tag"
