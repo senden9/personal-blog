@@ -12,7 +12,7 @@ author = "Stefano Probst"
 ## Content
 Here I will write irregular posts about software and hardware development.
 
-The programming languages that I use the will be [Rust](https://www.rust-lang.org/), Python and C#.
+The programming languages that I use will be [Rust](https://www.rust-lang.org/), Python and C#.
 Rust will be compiled either for x86-64, ARM or [MIPS](https://en.wikipedia.org/wiki/MIPS_architecture) CPU's.
 
 ## What drives this Blog
