@@ -59,12 +59,13 @@ They are all located in `core::sync::atomic` (or `std::sync::atomic`).
 To explain, I will pick the simplest one: `AtomicBool`.
 
 ```rust
-pub enum Ordering {
-    Relaxed,
-    Release,
-    Acquire,
-    AcqRel,
-    SeqCst,
-    // some variants omitted
+fn main() {
+    // Init logger. Default level is `warn`.
+    let env = env_logger::Env::default().filter_or(env_logger::DEFAULT_FILTER_ENV, "warn");
+    env_logger::Builder::from_env(env).init();
+
+    let matches: clap::ArgMatches = cli::cli_parse();
+
+    debug!("CLI: {:#?}", matches);
 }
 ```

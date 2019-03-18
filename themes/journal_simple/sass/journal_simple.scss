@@ -22,7 +22,8 @@ html {
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
   //background-color: #202020;
-  background-color: $theme;
+  //background-color: $theme;
+  background: linear-gradient(179.5deg,#75b5aa 97%, transparent 99%)
 }
 @media (min-width: 48em) {
   .sidebar {
@@ -64,6 +65,12 @@ a.sidebar-nav-item:focus {
 }
 .sidebar-nav-item.active {
   font-weight: bold;
+}
+
+/* For the Code blocks */
+code,
+pre {
+  font-family: 'Source Code Pro', monospace;
 }
 
 /* Sticky sidebar
