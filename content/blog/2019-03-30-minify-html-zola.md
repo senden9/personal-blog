@@ -48,3 +48,4 @@ Sure, it looks way more uggly now. But it also saves some bytes.
    * Better place to hook in?
  * Compare raw difference in bytes + ratio with gzip (because that is whats shipped) bytes + ratio
  * Upstreaming?
+ * Why implementing it in Zola and not use hooks for stuff (task runner for web) like [grunt](https://gruntjs.com/)?
